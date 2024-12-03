@@ -452,23 +452,24 @@
                         </div>
                     </div>
                     <div class="right-contact">
-                        <form action="" class="contact-form">
+                        <form id="form" class="contact-form">
                             <div class="input-control i-c-2">
-                                <input type="text" required placeholder="YOUR NAME">
-                                <input type="email" required placeholder="YOUR EMAIL">
+                                <input type="text" name="name" required placeholder="YOUR NAME">
+                                <input type="email" name="email" required placeholder="YOUR EMAIL">
                             </div>
                             <div class="input-control">
-                                <input type="text" required placeholder="ENTER SUBJECT">
+                                <input type="text" name="subject" required placeholder="ENTER SUBJECT">
                             </div>
                             <div class="input-control">
-                                <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
+                                <textarea name="message" cols="15" rows="8" required placeholder="Message Here..."></textarea>
                             </div>
                             <div class="submit-btn">
-                                <a href="YourCV.pdf" class="main-btn"  target="_blank" rel="noopener noreferrer" download>
-                                    <span class="btn-text">Download CV</span>
-                                    <span class="btn-icon"><i class="fas fa-download"></i></span>
-                                </a>
+                                <button id="button" type="submit" class="Submitbutton">
+                                    <span class="btn-text">Submit</span>
+                                    <span class="btn-icon" ><i class="fa-solid fa-check"></i></span>
+                                </button>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
@@ -496,5 +497,31 @@
         <i class="fas fa-adjust"></i>
     </div>
     <script src="app.js"></script>
-</body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS with your User ID
+    emailjs.init('0pEBYlllFkO_ajVZy'); // Replace with your actual User ID
+
+    const btn = document.getElementById('button');
+
+    document.getElementById('form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        
+
+        const serviceID = 'ojhaneha0028'; // Replace with your service ID
+        const templateID = 'template_nkgtsuv'; // Replace with your template ID
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                
+                alert('Message sent successfully!');
+            }, (err) => {
+                
+                alert('Failed to send message. Please try again later.\nError: ' + JSON.stringify(err));
+            });
+    });
+</script>
+        </body>
+
 </html>
