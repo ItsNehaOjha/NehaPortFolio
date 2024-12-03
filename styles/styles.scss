@@ -6,7 +6,8 @@
 }
 
 :root {
-    --color-primary: #0e0e01d8;
+    --color-primary: #1C1D22 ;
+    // --color-primary: #0B1014;
     --color-secondary: #fc0051;
     --color-white: #FFFFFF;
     --color-black: #000;
@@ -22,7 +23,7 @@
 }
 
 .light-mode {
-    --color-primary: #FFFFFF;
+    --color-primary: #ece8e8e3;
     --color-secondary: #F56692;
     --color-white: #454e56;
     --color-black: #000;
@@ -492,7 +493,7 @@ section {
         .contact-icon {
             display: flex;
             margin-top: 2rem;
-            a {
+            a{
                 display: flex;
                 align-items: center;
                 color: var(--color-white);
@@ -546,6 +547,7 @@ section {
         .submit-btn {
             display: flex;
             justify-content: flex-start;
+            
         }
     }
 }
@@ -556,6 +558,61 @@ section {
     display: flex;
     align-self: flex-start;
 }
+.Submitbutton {
+    all: unset; 
+    border-radius: 30px;
+    font-weight: 600;
+    color: inherit;
+    position: relative;
+    border: 1px solid var(--color-secondary);
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .Submitbutton .btn-text {
+    padding: 0 2rem;
+  }
+  .Submitbutton .btn-icon {
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 1rem;
+  }
+  .Submitbutton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: all 0.4s ease-out;
+    z-index: -1;
+  }
+  .Submitbutton:hover {
+    transition: all 0.4s ease-out;
+  }
+  .Submitbutton:hover::before {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-secondary);
+    transform: translateX(0);
+    transition: all 0.4s ease-out;
+  }
+  
+.submitform-btn{
+    border-radius: 30px;
+    color: inherit;
+    font-weight: 600;
+    width: 9rem;
+    height: 2.4rem;
+    color: #FFFFFF;
+    
+    cursor: pointer;
+    background-color: var(--color-secondary);
+  }
 .main-btn {
     border-radius: 30px;
     color: inherit;
